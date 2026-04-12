@@ -1,0 +1,394 @@
+/* ============================================================
+   THEME TOKENS
+   To change the visual theme, update the variables below.
+   ============================================================ */
+:root {
+  /* Colors */
+  --color-bg:           #fafaf8;
+  --color-surface:      #ffffff;
+  --color-text:         #1c1c1c;
+  --color-muted:        #6b7280;
+  --color-accent:       #2d6a4f;
+  --color-accent-dark:  #1f4d39;
+  --color-accent-light: #eaf2ed;
+  --color-border:       #e5e7eb;
+
+  /* Typography */
+  --font-heading: 'Georgia', 'Times New Roman', serif;
+  --font-body:    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-base: 1rem;
+  --line-height-body: 1.65;
+
+  /* Spacing & shape */
+  --radius:          8px;
+  --radius-lg:       16px;
+  --shadow:          0 1px 4px rgba(0, 0, 0, 0.07);
+  --max-width:       720px;
+  --spacing-section: 5rem;
+  --nav-height:      56px;
+}
+
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* offset anchors so sticky nav doesn't cover the heading */
+  scroll-padding-top: calc(var(--nav-height) + 1.5rem);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--color-accent-dark);
+}
+
+
+/* ============================================================
+   SKIP LINK  (accessibility — visible only on keyboard focus)
+   ============================================================ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  z-index: 200;
+  transition: top 0.1s;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.5rem;
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.site-nav a {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-muted);
+  transition: color 0.15s;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--color-accent);
+  outline: none;
+}
+
+.site-nav a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+
+/* ============================================================
+   LAYOUT CONTAINER
+   ============================================================ */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  padding: var(--spacing-section) 1.5rem;
+  text-align: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.hero__photo {
+  width: 100%;
+  margin: 0 auto 2.5rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: none;
+}
+
+.hero__photo img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Shown when no photo is present yet */
+.hero__photo--empty {
+  height: 300px;
+  background: var(--color-accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+}
+
+.hero__photo--empty span {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: normal;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.hero__sub {
+  font-size: 1.125rem;
+  color: var(--color-muted);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.section {
+  padding: var(--spacing-section) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.section--accent {
+  background: var(--color-accent-light);
+}
+
+.section__header {
+  margin-bottom: 2rem;
+}
+
+.section__header h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: normal;
+  color: var(--color-text);
+}
+
+
+/* ============================================================
+   EVENT CARDS
+   ============================================================ */
+.event-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.event-card:last-child {
+  margin-bottom: 0;
+}
+
+.event-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: normal;
+  color: var(--color-accent);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Definition list: label / value pairs */
+.event-info {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  gap: 0.6rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.event-info dt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  padding-top: 0.1rem;
+}
+
+.event-info dd {
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* Remove bottom margin when no description follows */
+.event-card:not(:has(.event-description)) .event-info {
+  margin-bottom: 0;
+}
+
+.event-description {
+  color: var(--color-text);
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.25rem;
+  margin-top: 0.25rem;
+}
+
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-prompt {
+  color: var(--color-muted);
+  margin-bottom: 0.5rem;
+}
+
+.contact-email {
+  font-size: 1.0625rem;
+  font-weight: 500;
+}
+
+
+/* ============================================================
+   RSVP
+   ============================================================ */
+.rsvp-prompt {
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+  font-size: 1.0625rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: var(--color-accent);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.btn:hover {
+  background: var(--color-accent-dark);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+  color: #ffffff;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+
+/* ============================================================
+   RESPONSIVE — mobile
+   ============================================================ */
+@media (max-width: 480px) {
+  :root {
+    --spacing-section: 3.5rem;
+  }
+
+  .site-nav ul {
+    gap: 1.25rem;
+  }
+
+  .site-nav a {
+    font-size: 0.75rem;
+  }
+
+  /* Stack dt/dd vertically on small screens */
+  .event-info {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .event-info dt {
+    margin-top: 0.875rem;
+  }
+
+  .event-info dt:first-child {
+    margin-top: 0;
+  }
+
+  .event-info dd {
+    margin-top: 0.125rem;
+  }
+
+  .event-card {
+    padding: 1.25rem;
+  }
+
+  .hero__photo--empty {
+    height: 220px;
+  }
+}
