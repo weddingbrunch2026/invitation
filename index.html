@@ -16,6 +16,7 @@
         <li><a href="#event-details">Event Details</a></li>
         <li><a href="#contact">Contact Us</a></li>
         <li><a href="#rsvp">RSVP</a></li>
+        <li><a href="#places-to-stay">Places to Stay</a></li>
       </ul>
     </nav>
   </header>
@@ -24,13 +25,8 @@
 
     <!-- Hero -->
     <section class="hero" aria-label="Welcome">
-      <figure class="hero__photo hero__photo--empty" aria-hidden="true">
-        <!-- When you have a photo, replace this figure with:
-             <figure class="hero__photo">
-               <img src="images/your-photo.jpg" alt="Maria and Dan">
-             </figure>
-        -->
-        <span>Photo coming soon</span>
+      <figure class="hero__photo">
+        <img src="images/hero/IMG_0421.jpeg" alt="Maria and Dan">
       </figure>
       <h1>We Got Married!</h1>
       <p class="hero__sub">Please join us for a small celebration with friends and family.</p>
@@ -126,7 +122,7 @@
         <div class="section__header">
           <h2 id="rsvp-heading">RSVP</h2>
         </div>
-        <p class="rsvp-prompt">Please let us know if you'll be joining us.</p>
+        <p class="rsvp-prompt">Please fill out the form below and click 'Send RSVP'. Questions with an * are required.</p>
 
         <!--
           Powered by Formsubmit.co — free, no account required.
@@ -143,15 +139,25 @@
           <input type="hidden" name="_captcha" value="false">
 
           <div class="form-group">
-            <label for="name">Your name</label>
-            <input type="text" id="name" name="name" autocomplete="name" required>
+            <label for="name">Your name <span class="required-mark" aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" autocomplete="name" required aria-required="true">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email <span class="required-mark" aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" required aria-required="true">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone number <span class="required-mark" aria-hidden="true">*</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" required aria-required="true">
           </div>
 
           <div class="form-group">
             <fieldset>
-              <legend>Will you be attending?</legend>
+              <legend>Will you be attending? <span class="required-mark" aria-hidden="true">*</span></legend>
               <label class="radio-label">
-                <input type="radio" name="attending" value="Yes, I'll be there" required>
+                <input type="radio" name="attending" value="Yes, I'll be there" required aria-required="true">
                 Yes, I'll be there
               </label>
               <label class="radio-label">
@@ -163,7 +169,7 @@
 
           <div class="form-group">
             <label for="guest-count">Additional guests (not including yourself)</label>
-            <input type="number" id="guest-count" name="guest_count" min="0" max="10" value="0">
+            <input type="text" inputmode="numeric" pattern="[0-9]*" id="guest-count" name="guest_count" value="0">
           </div>
           <div id="guest-names" class="guest-names" aria-live="polite"></div>
 
@@ -174,6 +180,64 @@
 
           <button type="submit" class="btn">Send RSVP</button>
         </form>
+      </div>
+    </section>
+
+    <!-- Places to Stay -->
+    <section id="places-to-stay" class="section" aria-labelledby="places-heading">
+      <div class="container">
+        <div class="section__header">
+          <h2 id="places-heading">Places to Stay</h2>
+        </div>
+        <ul class="hotels-list">
+          <li class="hotel-card">
+            <span class="hotel-name">Comfort Inn</span>
+            <span class="hotel-distance">2 minute drive</span>
+          </li>
+          <li class="hotel-card">
+            <span class="hotel-name">Hampton Inn &mdash; Holly Springs</span>
+            <span class="hotel-distance">13 minute drive</span>
+          </li>
+          <li class="hotel-card">
+            <span class="hotel-name">Holiday Inn Express &mdash; Holly Springs</span>
+            <span class="hotel-distance">13 minute drive</span>
+          </li>
+          <li class="hotel-card">
+            <span class="hotel-name">La Quinta &mdash; Cary</span>
+            <span class="hotel-distance">23 minute drive</span>
+          </li>
+          <li class="hotel-card">
+            <span class="hotel-name">Hampton Inn &mdash; Cary</span>
+            <span class="hotel-distance">23 minute drive</span>
+          </li>
+        </ul>
+        <p class="hotels-note">Map links coming soon.</p>
+      </div>
+    </section>
+
+    <!-- Photos -->
+    <section id="photos" class="section" aria-labelledby="photos-heading">
+      <div class="container">
+        <div class="section__header">
+          <h2 id="photos-heading">Photos</h2>
+        </div>
+        <div class="photo-grid">
+          <figure class="photo-grid__item">
+            <img src="images/extra/IMG_1166.jpeg" alt="Maria and Dan">
+          </figure>
+          <figure class="photo-grid__item">
+            <img src="images/extra/IMG_1514.jpeg" alt="Maria and Dan">
+          </figure>
+          <figure class="photo-grid__item">
+            <img src="images/extra/IMG_8089.jpeg" alt="Maria and Dan">
+          </figure>
+          <figure class="photo-grid__item">
+            <img src="images/extra/IMG_8116.jpeg" alt="Maria and Dan">
+          </figure>
+          <figure class="photo-grid__item">
+            <img src="images/extra/IMG_8821.jpeg" alt="Maria and Dan">
+          </figure>
+        </div>
       </div>
     </section>
 
