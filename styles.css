@@ -481,9 +481,13 @@ a:focus-visible {
   color: var(--color-text);
 }
 
+a.hotel-name {
+  color: var(--color-accent);
+}
+
 .hotel-distance {
   font-size: 0.875rem;
-  color: var(--color-muted);
+  color: var(--color-text);
   white-space: nowrap;
 }
 
