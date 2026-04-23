@@ -494,6 +494,7 @@ a.hotel-name {
 .hotels-note {
   font-size: 0.875rem;
   color: var(--color-muted);
+  margin-bottom: 1.5rem;
 }
 
 
