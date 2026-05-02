@@ -497,6 +497,24 @@ a.hotel-name {
   margin-bottom: 1.5rem;
 }
 
+/* ============================================================
+   GIFTS SECTION
+   ============================================================ */
+
+#gifts p {
+  margin-bottom: 1.5rem;
+}
+
+#gifts h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+#gifts h4 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
 
 /* ============================================================
    PHOTO GALLERY
